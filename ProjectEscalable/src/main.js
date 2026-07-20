@@ -49,6 +49,7 @@ document.getElementById("addproduct").addEventListener("click", function(){
     agregar.appendChild(elemento)
     total += subtotal
     document.getElementById("total").textContent = `L. ${total}`
+    
   }
 
 
