@@ -1,0 +1,48 @@
+body{
+    background-color: #0f0c22;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container label{
+    font-size: 20px;
+}
+
+.container input{
+    padding: 0.3rem;
+    text-align: center;
+    font-size: 17px;
+}
+
+.container select{
+    padding: 0.4rem;
+    font-size: 15px;
+    text-align: center;
+}
+
+.container button{
+    padding: 0.3rem 2rem;
+    background-color: transparent;
+    color: #ffffff;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.container button:hover{
+    background-color: #261f58;
+}
+
+.container input, label, select{
+    margin: 0.8rem 0rem;
+}
