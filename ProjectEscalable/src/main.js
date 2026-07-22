@@ -36,11 +36,16 @@ document.querySelector('#app').innerHTML = /*html*/ `
 let agregar = document.getElementById("product")
 let total = 0
 let listaproductos = []
+let product
+let price
+let quatity
+
 document.getElementById("addproduct").addEventListener("click", function(){
 
-  let product = document.getElementById("name_products").value
-  let price = Number(document.getElementById("price_unitary").value)
-  let quatity = Number(document.getElementById("quatity").value)
+  
+  product = document.getElementById("name_products").value
+  price = Number(document.getElementById("price_unitary").value)
+  quatity = Number(document.getElementById("quatity").value)
 
   //const elemento = document.createElement('li')
   let subtotal = calcular(price, quatity, product)
@@ -52,6 +57,8 @@ document.getElementById("addproduct").addEventListener("click", function(){
     const nuevoproducto = {id: Date.now(), nombre: product, precio: price, cantidad: quatity, subtotal: subtotal}
     listaproductos.push(nuevoproducto)
     console.log("Arreglo agregado")
+
+    
     
   }
 });
