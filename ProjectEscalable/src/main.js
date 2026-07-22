@@ -19,7 +19,7 @@ document.querySelector('#app').innerHTML = /*html*/ `
       <label><span id="subtotal"></span></label>
 
       <button id="addproduct">Agregar Productos</button>
-
+      <button id="viewproduc">Ver Productos</button>
       <h2>Resumen</h2>
       <ul id="product">
 
@@ -35,23 +35,34 @@ document.querySelector('#app').innerHTML = /*html*/ `
 
 let agregar = document.getElementById("product")
 let total = 0
+let listaproductos = []
 document.getElementById("addproduct").addEventListener("click", function(){
 
   let product = document.getElementById("name_products").value
   let price = Number(document.getElementById("price_unitary").value)
   let quatity = Number(document.getElementById("quatity").value)
 
-  const elemento = document.createElement('li')
+  //const elemento = document.createElement('li')
   let subtotal = calcular(price, quatity, product)
-
+  document.getElementById("subtotal").textContent = subtotal
   if(subtotal !== null){
-    elemento.textContent = `Producto: ${product} - Precio: L. ${price} - Cantidad: ${quatity} - SubTotal: L. ${subtotal}`
-    agregar.appendChild(elemento)
+    //elemento.textContent = `Producto: ${product} - Precio: L. ${price} - Cantidad: ${quatity} - SubTotal: L. ${subtotal}`
+    //agregar.appendChild(elemento)
     total += subtotal
-    document.getElementById("total").textContent = `L. ${total}`
+    const nuevoproducto = {id: Date.now(), nombre: product, precio: price, cantidad: quatity, subtotal: subtotal}
+    listaproductos.push(nuevoproducto)
+    console.log("Arreglo agregado")
     
   }
+});
 
+document.getElementById("viewproduc").addEventListener("click", function(){
+  //let view = document.getElementById("product")
+  const elementos = document.createElement('li')
 
-
+  listaproductos.forEach((numero, index ) => {
+    elementos.textContent = `Id: ${index} - Producto: ${numero.nombre} - Precio: ${numero.precio} - Cantidad: ${numero.cantidad} - SubTotal: ${numero.subtotal}`
+  })
+  
+  agregar.appendChild(elementos)
 })
